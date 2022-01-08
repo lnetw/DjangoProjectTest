@@ -1,0 +1,17 @@
+{% extends "data/base_page.html" %}
+
+{% block content %}
+    {% for row in data %}
+        <div class="body_row">
+            <h1>
+                <a href="{% url 'data_details' pk=row.pk %}">{{ row.content }}</a>
+            </h1>
+            <p>
+                Number row in db {{ row.id }} {{ linebreaks }}
+            </p>
+            <p>
+                Author by: {{ row.author }}
+            </p>
+        </div>
+    {% endfor %}
+{% endblock content %}

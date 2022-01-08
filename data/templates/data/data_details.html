@@ -1,0 +1,18 @@
+{% extends "data/base_page.html" %}
+
+{% block content %}
+    <div class="body_row">
+        <h1>
+            <a href="{% url 'data_details' pk=data_number.pk %}">{{ data_number.content }}</a>
+        </h1>
+        <p>
+            Number row in db {{ data_number.id }} {{ linebreaks }}
+        </p>
+        <p>
+            Author by: {{ data_number.author }}
+        </p>
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url "record_edit" pk=data_number.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+    </div>
+{% endblock content %}
